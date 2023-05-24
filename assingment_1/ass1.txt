@@ -1,0 +1,353 @@
+Task 1 :- Create your own project (GitHub/GitLab/bitbucket), use git commands to push your code to remote 
+
+PS C:\Users\Motiram> cd E:\iauro\gitTask
+PS E:\iauro\gitTask> git init
+Initialized empty Git repository in E:/iauro/gitTask/.git/
+PS E:\iauro\gitTask> git add .
+PS E:\iauro\gitTask> git commit -m "first commit"
+[master (root-commit) 99f5c7c] first commit
+ 1 file changed, 8 insertions(+)
+ create mode 100644 index.html
+PS E:\iauro\gitTask> git status
+On branch master
+nothing to commit, working tree clean
+PS E:\iauro\gitTask> git add .
+PS E:\iauro\gitTask> git commit -m "second commit"
+[master 900c7f1] second commit
+ 1 file changed, 1 insertion(+)
+PS E:\iauro\gitTask> git add .
+PS E:\iauro\gitTask> git commit -m "third commit"
+[master 7f4fec0] third commit
+ 1 file changed, 1 insertion(+)
+PS E:\iauro\gitTask> git log --oneline
+7f4fec0 (HEAD -> master) third commit
+900c7f1 second commit
+99f5c7c first commit
+PS E:\iauro\gitTask> git remote add origin https://Motiram_Shinde@bitbucket.org/motiram_shinde/iauro_gittask.git
+PS E:\iauro\gitTask> git push -u origin master --force
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (9/9), 787 bytes | 787.00 KiB/s, done.
+Total 9 (delta 2), reused 0 (delta 0), pack-reused 0
+To https://bitbucket.org/motiram_shinde/iauro_gittask.git
+ + 299094a...7f4fec0 master -> master (forced update)
+branch 'master' set up to track 'origin/master'.
+PS E:\iauro\gitTask>
+
+Task 2:- Clone existing git project, make some changes, and create pull request 
+
+PS E:\iauro\gitTask> cd E:\iauro\clone_pull
+PS E:\iauro\clone_pull>  git clone https://Motiram_Shinde@bitbucket.org/motiram_shinde/iauro_gittask.git
+Cloning into 'iauro_gittask'...
+remote: Enumerating objects: 9, done.
+remote: Counting objects: 100% (9/9), done.
+remote: Compressing objects: 100% (6/6), done.
+remote: Total 9 (delta 2), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (9/9), 767 bytes | 2.00 KiB/s, done.
+PS E:\iauro\clone_pull> cd E:\iauro\clone_pull\iauro_gittask
+PS E:\iauro\clone_pull\iauro_gittask> git branch
+* master
+PS E:\iauro\clone_pull\iauro_gittask> git add .
+PS E:\iauro\clone_pull\iauro_gittask> git commit -m "pull request"
+[master 6514091] pull request
+ 1 file changed, 1 insertion(+)
+PS E:\iauro\clone_pull\iauro_gittask> git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+PS E:\iauro\clone_pull\iauro_gittask> git checkout -b html/pull_request
+Switched to a new branch 'html/pull_request'
+PS E:\iauro\clone_pull\iauro_gittask> git push
+fatal: The current branch html/pull_request has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin html/pull_request
+
+PS E:\iauro\clone_pull\iauro_gittask> git push --set-upstream origin html/pull_request
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 306 bytes | 153.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote:
+remote: Create pull request for html/pull_request:
+remote:   https://bitbucket.org/motiram_shinde/iauro_gittask/pull-requests/new?source=html/pull_request&t=1
+remote:
+To https://bitbucket.org/motiram_shinde/iauro_gittask.git
+ * [new branch]      html/pull_request -> html/pull_request
+branch 'html/pull_request' set up to track 'origin/html/pull_request'.
+
+Task 3:- Resolve merge conflicts
+
+PS E:\iauro\clone_pull\iauro_gittask> cd E:\iauro\merge_conflict
+PS E:\iauro\merge_conflict> git init
+Initialized empty Git repository in E:/iauro/merge_conflict/.git/
+PS E:\iauro\merge_conflict> echo "This is a new README file" > README.md
+PS E:\iauro\merge_conflict> cat README.md
+This is a new README file
+PS E:\iauro\merge_conflict> git add README.md
+PS E:\iauro\merge_conflict> git commit -m "README file added"
+[master (root-commit) bfbb93c] README file added
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 README.md
+PS E:\iauro\merge_conflict> git status
+On branch master
+nothing to commit, working tree clean
+PS E:\iauro\merge_conflict> git checkout -b "branch_to_create_merge_conflict"
+Switched to a new branch 'branch_to_create_merge_conflict'
+PS E:\iauro\merge_conflict> git branch
+* branch_to_create_merge_conflict
+  master
+PS E:\iauro\merge_conflict> git add README.md
+PS E:\iauro\merge_conflict> git commit -m "Edits made to README on the branch"
+[branch_to_create_merge_conflict 532591d] Edits made to README on the branch
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+PS E:\iauro\merge_conflict> git checkout master
+Switched to branch 'master'
+PS E:\iauro\merge_conflict> echo "This is a new README file This is an edit on the master branch" > README.md
+PS E:\iauro\merge_conflict> git add README.md
+PS E:\iauro\merge_conflict> git commit -m "Edits made to README on the master branch"
+[master 8b2923e] Edits made to README on the master branch
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+PS E:\iauro\merge_conflict> git branch
+  branch_to_create_merge_conflict
+* master
+PS E:\iauro\merge_conflict> git merge branch_to_create_merge_conflict
+warning: Cannot merge binary files: README.md (HEAD vs. branch_to_create_merge_conflict)
+Auto-merging README.md
+CONFLICT (content): Merge conflict in README.md
+Automatic merge failed; fix conflicts and then commit the result.
+PS E:\iauro\merge_conflict> git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+PS E:\iauro\merge_conflict> git merge --abort
+PS E:\iauro\merge_conflict> git add README.md
+PS E:\iauro\merge_conflict> git status
+On branch master
+nothing to commit, working tree clean
+PS E:\iauro\merge_conflict> git commit
+On branch master
+nothing to commit, working tree clean
+PS E:\iauro\merge_conflict> git merge branch_to_create_merge_conflict
+warning: Cannot merge binary files: README.md (HEAD vs. branch_to_create_merge_conflict)
+Auto-merging README.md
+CONFLICT (content): Merge conflict in README.md
+Automatic merge failed; fix conflicts and then commit the result.
+PS E:\iauro\merge_conflict> git add .
+PS E:\iauro\merge_conflict> git commit -m "Resolved merge conflict by incorporating both suggestions."
+[master ce95f11] Resolved merge conflict by incorporating both suggestions.
+PS E:\iauro\merge_conflict> git merge branch_to_create_merge_conflict
+Already up to date.
+PS E:\iauro\merge_conflict>
+
+Task 4:- Explore Git tags 
+
+PS E:\iauro\merge_conflict> cd E:\iauro\gitTask
+PS E:\iauro\gitTask> git checkout master
+Already on 'master'
+Your branch is up to date with 'origin/master'.
+PS E:\iauro\gitTask> git tag v1.0
+PS E:\iauro\gitTask> git tag
+v1.0
+PS E:\iauro\gitTask> git tag -a v2.3 -m "New version"
+PS E:\iauro\gitTask> git tag
+v1.0
+v2.3
+PS E:\iauro\gitTask> git show v1.0
+commit 7f4fec038612221bad3ed34dd848632f5d0f429b (HEAD -> master, tag: v2.3, tag: v1.0, origin/master)
+Author: Motiram Shinde <motiramshinde944@gmail.com>
+Date:   Tue Feb 8 11:32:39 2022 +0530
+
+    third commit
+
+diff --git a/index.html b/index.html
+index 4a1a0b9..b864770 100644
+--- a/index.html
++++ b/index.html
+@@ -5,5 +5,6 @@
+     <h1>This is a Header</h1>
+     <p>This is paragraph</p>
+     <p>Update for second commit</p>
++    <p>Update for third commit</p>
+   </body>
+ </html>
+PS E:\iauro\gitTask> git tag -l "v1.*"
+v1.0
+PS E:\iauro\gitTask> git push --tags
+Enumerating objects: 10, done.
+Counting objects: 100% (10/10), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (10/10), 924 bytes | 308.00 KiB/s, done.
+Total 10 (delta 2), reused 0 (delta 0), pack-reused 0
+To https://bitbucket.org/motiram_shinde/iauro_gittask.git
+ * [new tag]         v1.0 -> v1.0
+ * [new tag]         v2.3 -> v2.3
+PS E:\iauro\gitTask> git tag -d v1.0
+Deleted tag 'v1.0' (was 7f4fec0)
+PS E:\iauro\gitTask> git tag
+v2.3
+PS E:\iauro\gitTask> git tag --delete v2.3
+Deleted tag 'v2.3' (was 23e6b0f)
+PS E:\iauro\gitTask> git tag
+PS E:\iauro\gitTask> git push origin -d v1.0
+To https://bitbucket.org/motiram_shinde/iauro_gittask.git
+ - [deleted]         v1.0
+PS E:\iauro\gitTask> git log --oneline
+7f4fec0 (HEAD -> master, origin/master) third commit
+900c7f1 second commit
+99f5c7c first commit
+PS E:\iauro\gitTask> git tag v2.3 900c7f1
+PS E:\iauro\gitTask> git tag
+v2.3
+PS E:\iauro\gitTask> git push --tags
+To https://bitbucket.org/motiram_shinde/iauro_gittask.git
+ ! [rejected]        v2.3 -> v2.3 (already exists)
+error: failed to push some refs to 'https://bitbucket.org/motiram_shinde/iauro_gittask.git'
+hint: Updates were rejected because the tag already exists in the remote.
+PS E:\iauro\gitTask> git tag v2.4 900c7f1
+PS E:\iauro\gitTask> git push --tags
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://bitbucket.org/motiram_shinde/iauro_gittask.git
+ * [new tag]         v2.4 -> v2.4
+ ! [rejected]        v2.3 -> v2.3 (already exists)
+error: failed to push some refs to 'https://bitbucket.org/motiram_shinde/iauro_gittask.git'
+hint: Updates were rejected because the tag already exists in the remote.
+PS E:\iauro\gitTask>
+
+Task 5:- Explore commands like checkout, stash, revert, rebase, etc
+
+CHECKOUT :-
+
+PS E:\iauro\gitTask> git branch
+* master
+PS E:\iauro\gitTask> git checkout -b branch1
+Switched to a new branch 'branch1'
+PS E:\iauro\gitTask> git checkout -b branch2
+Switched to a new branch 'branch2'
+PS E:\iauro\gitTask> git checkout branch1
+Switched to branch 'branch1'
+PS E:\iauro\gitTask> git push origin branch1
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+remote:
+remote: Create pull request for branch1:
+remote:   https://bitbucket.org/motiram_shinde/iauro_gittask/pull-requests/new?source=branch1&t=1
+remote:
+To https://bitbucket.org/motiram_shinde/iauro_gittask.git
+ * [new branch]      branch1 -> branch1
+PS E:\iauro\gitTask> git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+PS E:\iauro\gitTask> git branch -d branch2
+Deleted branch branch2 (was 7f4fec0).
+PS E:\iauro\gitTask> git branch -d branch1
+Deleted branch branch1 (was 7f4fec0).
+PS E:\iauro\gitTask> git push origin :branch1
+To https://bitbucket.org/motiram_shinde/iauro_gittask.git
+ - [deleted]         branch1
+PS E:\iauro\gitTask>
+
+STASH :-
+
+PS E:\iauro\gitTask> git stash save "add paragraph2"
+Saved working directory and index state On master: add paragraph2
+PS E:\iauro\gitTask> git stash list
+stash@{0}: On master: add paragraph2
+PS E:\iauro\gitTask> git stash apply 'stash@{0}'
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+PS E:\iauro\gitTask> git stash drop 'stash@{0}'
+Dropped stash@{0} (f6e2e1e3481fab20447a2d3bba09ddf63f8a12b5)
+PS E:\iauro\gitTask> git stash list
+PS E:\iauro\gitTask> git stash save "add paragraph2"
+Saved working directory and index state On master: add paragraph2
+PS E:\iauro\gitTask> git stash clear
+PS E:\iauro\gitTask> git stash list
+PS E:\iauro\gitTask>
+
+REVERT :- 
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+Revert "To check revert commit"
+
+This reverts commit ec16e6324536366bf48a0716e560df163294052a.
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch master
+# Your branch is ahead of 'origin/master' by 1 commit.
+#   (use "git push" to publish your local commits)
+#
+# Changes to be committed:
+#       modified:   index.html
+#
+[master e473bc5] Revert "To check revert commit"
+ 1 file changed, 1 deletion(-)
+PS E:\iauro\gitTask> git log --oneline                                                       ~            e473bc5 (HEAD -> master) Revert "To check revert commit"
+ec16e63 To check revert commit                                                              ~
+7f4fec0 (origin/master) third commit
+900c7f1 (tag: v2.4, tag: v2.3) second commit                                               ~
+99f5c7c first commit
+PS E:\iauro\gitTask>
+
+REBASE :- 
+
+PS E:\iauro\gitTask> git checkout -b feature
+Switched to a new branch 'feature'
+PS E:\iauro\gitTask> git log -2
+commit e473bc577a0ab5521f40d0e7da2015f1c1e71c63 (HEAD -> feature, master)
+Author: Motiram Shinde <motiramshinde944@gmail.com>
+Date:   Tue Feb 8 14:58:46 2022 +0530
+
+    Revert "To check revert commit"
+
+    This reverts commit ec16e6324536366bf48a0716e560df163294052a.
+
+commit ec16e6324536366bf48a0716e560df163294052a
+Author: Motiram Shinde <motiramshinde944@gmail.com>
+Date:   Tue Feb 8 14:57:39 2022 +0530
+
+    To check revert commit
+PS E:\iauro\gitTask> git branch
+* feature
+  master
+PS E:\iauro\gitTask> git rebase master
+Current branch feature is up to date.
+PS E:\iauro\gitTask> git log -2
+commit e473bc577a0ab5521f40d0e7da2015f1c1e71c63 (HEAD -> feature, master)
+Author: Motiram Shinde <motiramshinde944@gmail.com>
+Date:   Tue Feb 8 14:58:46 2022 +0530
+
+    Revert "To check revert commit"
+
+    This reverts commit ec16e6324536366bf48a0716e560df163294052a.
+
+commit ec16e6324536366bf48a0716e560df163294052a
+Author: Motiram Shinde <motiramshinde944@gmail.com>
+Date:   Tue Feb 8 14:57:39 2022 +0530
+
+    To check revert commit
+PS E:\iauro\gitTask>

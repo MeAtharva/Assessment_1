@@ -1,0 +1,41 @@
+1) git init :- To create new repo inside folder
+2) git add . :- To adds a change in the working directory
+3) git commit -m <commit massage> :- To commit the changes with commit massage
+4) git status :- To check the status of repo
+5) git log --oneline :- To check all commits
+6) git remote add origin <url> :- To  add remote to origin
+7) git push -u origin master --force :- To push code forcefully
+8) git clone <url to clone> :- To clone git repo
+9) git branch <Branch name>:- To create new branch 
+10) git checkout -b <nameOfNewBranch> :- To create and switch to new branch
+11) git push :- To push code
+12) git push --set-upstream origin html/pull_request
+13) echo :- To append text to a file and If the file does not exist, one is created
+14) cat :-  To view containt of file
+15) git checkout <BranchName> :- To switch between branches
+16) git merge <BranchName> :- To merge the branches
+17) git merge --abort :- To abort merge
+18) git tag :- To create tags
+19) git tag -a :- To create annotated tag
+20) git show :- To see all tags
+21) git tag -l <tag name> :- To check perticular tag with name
+22) git push --tags :- To upload/push tags to repo
+23) git tag -d :- To delete tag from local
+24) git tag --delete :- To delete tag from local
+25) git push origin -d <tag name> :- To delete tag from repo
+26) git tag <tag name> <commit id> :- To create tag with commit
+27) git push origin :- To push code to repo
+28) git branch -d <branch name> :- To delete branch from local
+29) git push origin :<branch name> :- To delete branch from repo
+30) git stash save <massege> :- To save stash with name
+31) git stash list :- To check all stash
+32) git stash apply <stash index> :- To apply stash
+33) git stash drop <stash index> :- To drop the stash
+34) git log -2 :- to check commit upto 2 
+35) git rebase <branch name> :- To reapply commits
+36) git commit --short :- To check status in compact 
+37) git help --all :-  See all possible commands
+38) git branch :- To see all present branches
+39) git config --global user.name :- To set global user name
+40) git config --global user.email :- To set globale email 
+ 
